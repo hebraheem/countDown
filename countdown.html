@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>prune text</title>
+</head>
+<style type="text/css">
+    body {
+        background-color: black;
+        color: gold;
+    }
+    .contain {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding: 250px 0;
+    }
+ 
+    p {
+        font-size: 2.5rem;
+    }
+    h1 {
+        font-family: fantasy;
+    }
+</style>
+<body>
+    <div class="contain">
+
+        <h1>Count down to my birthday</h1>
+
+        <p class="birthday"></p>
+    </div>
+
+
+ <script>
+   function beginCount(){
+        let countDownDate = new Date("Dec 23, 2020 00:00:00").getTime();
+
+        let currentTime = new Date().getTime();
+
+        let distance = countDownDate - currentTime;
+
+        let day = Math.floor((distance / (1000 * 60 * 60 * 24)));
+
+        let hour = Math.floor (((distance) % (1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+
+        let minute = Math.floor(((distance) % (1000 * 60 * 60))/(1000 * 60));
+
+        let secs = Math.floor(((distance) % (1000 * 60))/(1000));
+
+
+        document.querySelector(".birthday").innerHTML = `${day}d ${hour}h ${minute}m ${secs}s`; 
+
+        if (distance <= 0){
+            clearInterval(beginCount);
+            document.querySelector('.birthday').innerHTML ="Happy birthday boss!!!!"
+        }
+
+    }
+    setInterval(beginCount, 1000);
+
+
+
+
+//     let beginCount = setInterval(()=>{
+//     let countDownDate = new Date("Dec 23, 2020 00:00:00").getTime();
+
+//     let currentTime = new Date().getTime();
+
+//     let distance = countDownDate - currentTime;
+
+//     let day = Math.floor((distance / (1000 * 60 * 60 * 24)));
+
+//     let hour = Math.floor (((distance) % (1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+
+//     let minute = Math.floor(((distance) % (1000 * 60 * 60))/(1000 * 60));
+
+//     let secs = Math.floor(((distance) % (1000 * 60))/(1000));
+
+
+//     document.querySelector(".birthday").innerHTML = `${day}d ${hour}h ${minute}m ${secs}s`; 
+
+//     if (distance <= 0){
+//         clearInterval(beginCount);
+//         document.querySelector('.birthday').innerHTML ="Happy birthday boss!!!!"
+//     }
+
+// },1000)
+
+    
+
+    </script>
+</body>
+</html>
